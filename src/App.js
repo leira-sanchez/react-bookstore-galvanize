@@ -15,6 +15,7 @@ class App extends React.Component {
     }
     this.addToOrder = this.addToOrder.bind(this);
     this.removeFromOrder = this.removeFromOrder.bind(this);
+    this.searchBooks = this.searchBooks.bind(this);
   }
 
   componentDidMount() {
@@ -43,17 +44,27 @@ class App extends React.Component {
     //why is this undefined?
     console.log(selectedBook);
     let newOrder = this.state.order;
-    newOrder.splice(selectedBook);
+    // newOrder.splice(selectedBook);
     console.log(newOrder);
 
-    // let filtered = newOrder.filter((book) => {
-    //   console.log("id:", book);
-    //   return book != selectedBook;
-    // });
+    let filtered = newOrder.filter((book) => {
+      return book.title != selectedBook;
+    });
+
+  
     this.setState({
-      order: newOrder
+      order: filtered
     })
 
+  }
+  searchBooks(searchValue) {
+    let books = this.state.books;
+    let searchedBooks = books.filter((book) => {
+      return(
+        book.title.toLowerCase().includes(searchValue) || book.author.toLowerCase().includes(searchValue)
+        );
+    });
+    this.setState({ books: searchedBooks});
   }
   render() {
     var { isLoaded, books } = this.state;
@@ -62,7 +73,7 @@ class App extends React.Component {
     } else {
       return (
         <div className="App container-fluid">
-          <Header />
+          <Header handleSearch={this.searchBooks}/>
           <div className="row content">
             <Books handleBook={this.addToOrder} books={this.state.books} />
             <Cart handleRemove={this.removeFromOrder} currentBooks={this.state.order}/>
