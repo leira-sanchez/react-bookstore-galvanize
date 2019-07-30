@@ -9,8 +9,8 @@ class Header extends React.Component {
             this.props.handleSearch(e.target.searcher.value.toLowerCase());
         }
         return (
-            <div className="header">
-                <h1 className="row">React Bookstore</h1>
+            <div className="header container-fluid ">
+                <h1 className="row justify-content-center">React Bookstore</h1>
                 <form onSubmit={getSearch}>
                     <input className="searcher" name="searcher" placeholder="search"></input> 
                     <input type="submit"/> 

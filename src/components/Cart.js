@@ -23,14 +23,14 @@ const Cart = ({ currentBooks, handleRemove }) => {
     })
 
     return (
-        <div className="col-6">
+        <div className="col-6 cart">
             <h2>Shopping Cart</h2>
             <div className="row">
                 <h3 className="col-6">Title</h3>
                 <h3 className="col-3">Price</h3>
             </div>
             {allBooksCart}
-            <h3>Total: ${totalOrder}</h3>
+            <h3 id="total">Total: ${totalOrder}</h3>
         </div>
     )
 }

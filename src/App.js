@@ -72,7 +72,7 @@ class App extends React.Component {
       return <div>Loading...</div>
     } else {
       return (
-        <div className="App container-fluid">
+        <div className="App">
           <Header handleSearch={this.searchBooks}/>
           <div className="row content">
             <Books handleBook={this.addToOrder} books={this.state.books} />

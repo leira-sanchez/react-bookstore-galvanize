@@ -1,0 +1,20 @@
+.header {
+    background-color:#266DD3;
+    color:white;
+ 
+}
+
+.cart {
+    border-left:2px solid black;
+
+}
+
+.content {
+    padding:1.5em;
+}
+#total {
+    color:#266DD3;
+}
+h2 {
+    border-bottom: 2px solid black;
+}
